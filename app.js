@@ -44,3 +44,10 @@ function addCard(e) {
   collection.appendChild(li);
   e.preventDefault();
 }
+
+collection.addEventListener('click', removeCard);
+function removeCard(e) {
+    if(e.target.classList.contains('remove-item')) {
+        e.target.closest('.container').remove();
+    }    
+}
