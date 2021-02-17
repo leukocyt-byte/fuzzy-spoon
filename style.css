@@ -221,5 +221,9 @@ ul {
 }
 
 .hidden {
-  display: none;
+    display: none;
+}
+
+.invisibile {
+    visibility: hidden;
 }
