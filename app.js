@@ -24,6 +24,10 @@ function addCard(e) {
   const cont = e.target.querySelector(".container");
   const colorSelected = cont.getAttribute("input-color");
   const cardValue = cont.querySelector("#task").value;
+  if (cardValue == "") {
+    alert("Please enter your task");
+    return false;
+  };
 
   const card = cardTemplate.cloneNode(true).content; // nowy element
 
