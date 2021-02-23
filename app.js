@@ -73,6 +73,10 @@ function editable(e) {
     .querySelector(".colors")
     .classList.remove("hidden");
 
+    e.target
+    .closest(".container")
+    .classList.remove("small");
+
   const formColor = e.target.closest("form");
   const radios = formColor.elements.radioCol;
   radios.forEach((radio) => {
@@ -102,5 +106,8 @@ function saved(e) {
     e.target
       .closest(".container")
       .querySelector(".new-task-input").disabled = true;
+      e.target
+    .closest(".container")
+    .classList.add("small");
   }
 }
