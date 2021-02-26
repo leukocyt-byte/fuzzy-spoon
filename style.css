@@ -132,6 +132,10 @@ ul {
   font-family: "Architects Daughter", cursive;
 }
 
+.done {
+  text-decoration: line-through;
+  opacity: 50%;
+}
 .colors {
   margin-top: 70px;
 }

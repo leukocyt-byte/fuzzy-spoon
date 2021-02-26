@@ -1,8 +1,6 @@
 const formColor = document.querySelector("form");
 const radios = formColor.elements.radioCol;
 
-const Pair = (x, y) => [x, y];
-
 const avColors = ["redBg", "yellowBg", "blueBg", "pinkBg", "blank"];
 const defaultColor = avColors[0];
 const cardTemplate = document.querySelector("#card_form");
@@ -48,13 +46,16 @@ function addCard(e) {
 collection.addEventListener("click", removeCard);
 function removeCard(e) {
   if (e.target.classList.contains("remove-item")) {
-    e.target.closest(".container").remove();
+    e.target.closest(".card-item").remove();
   }
 }
 
 collection.addEventListener("click", editable);
 function editable(e) {
-  if (e.target.classList.contains("edit-item")) {
+  if (!e.target.classList.contains("edit-item")) {
+    return;
+  }
+  else {
     e.target.classList.add("hidden");
     e.target
       .closest(".container")
@@ -106,8 +107,23 @@ function saved(e) {
     e.target
       .closest(".container")
       .querySelector(".new-task-input").disabled = true;
-      e.target
+    e.target
     .closest(".container")
     .classList.add("small");
   }
 }
+
+collection.addEventListener("change", function (e) {
+  if (!e.target.classList.contains("checkbox-container")) {
+    return;
+  }
+  else {
+      e.target
+      .closest(".flex-row")
+      .querySelector(".new-task-input")
+      .classList.toggle("done");
+      e.target
+      .closest(".container")
+      .classList.toggle("done");
+
+  }});
